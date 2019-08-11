@@ -11,7 +11,7 @@ const cors         = require('cors')
 
 mongoose
 //.connect(`mongodb://localhost/${process.env.DB}`, {useNewUrlParser: true})
-.connect(`mongodb+srv://${process.env.DB}`, {useNewUrlParser: true})
+.connect(process.env.MONGODB_URI, {useNewUrlParser: true})
 .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -60,6 +60,11 @@ app.locals.title = 'Movies database API';
 app.use(`/`, require('./routes/index'))
 app.use(`/api`, require('./routes/api-routes/api'))
 app.use(`/api`, require('./routes/file-upload-routes'))
+
+app.use((req, res, next) => {
+  // If no routes match, send them the React HTML.
+  res.sendFile(__dirname + "/public/index.html");
+});
 
 
 module.exports = app
