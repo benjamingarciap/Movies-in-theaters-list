@@ -61,7 +61,7 @@ const EditMovie = (props)=>{
   const getSingleMovie = () => {
     const { params } = props.match
     //console.log(props)
-    axios.get(`https://newmovieslist.herokuapp.com//api/movies/${params.id}`)
+    axios.get(`https://newmovieslist.herokuapp.com/api/movies/${params.id}`)
     .then( responseFromApi =>{
       //console.log(responseFromApi)
       const theMovie = responseFromApi.data
