@@ -124,7 +124,7 @@ const MovieList = (props) => {
               <MobileStepper
                //id='fixed-stepper'
                variant="progress"
-               steps={45}
+               steps={17}
                position="static"
                activeStep={activeStep}
                className={classes.root}

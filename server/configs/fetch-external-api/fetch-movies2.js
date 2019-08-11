@@ -5,7 +5,8 @@ const Movie = require('../../models/movie-api')
 const mongoose = require('mongoose')
 
 const dbtitle = `technical-test-movies-external-api`;
-mongoose.connect(`mongodb://localhost/${dbtitle}`, { useNewUrlParser: true });
+mongoose.connect(`mongodb+srv://ben:mischief@moviesdb-r7ej2.mongodb.net/test?retryWrites=true&w=majority
+`, { useNewUrlParser: true });
 Movie.collection.drop()
 
 const apiUrl = "https://api.themoviedb.org/3/movie/now_playing?api_key=588e03eee999794b73b1105d24e29be8&page=1"

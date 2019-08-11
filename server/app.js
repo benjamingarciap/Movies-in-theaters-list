@@ -10,8 +10,9 @@ const path         = require('path');
 const cors         = require('cors')
 
 mongoose
-  .connect(`mongodb://localhost/${process.env.DB}`, {useNewUrlParser: true})
-  .then(x => {
+//.connect(`mongodb://localhost/${process.env.DB}`, {useNewUrlParser: true})
+.connect(`mongodb+srv://${process.env.DB}`, {useNewUrlParser: true})
+.then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
   .catch(err => {
