@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const service = axios.create({
-  baseURL: 'https://newmovieslist.herokuapp.com/'
+  baseURL: 'https://newmovieslist.herokuapp.com/api'
 })
 
 const errorHandler = err => {
