@@ -94,7 +94,7 @@ const MovieList = (props) => {
     setActiveStep(prevActiveStep => {
       return prevActiveStep + 1 
     });
-    const numOfMoviesOnView = 22
+    const numOfMoviesOnView = 6
     axios.get(`${process.env.REACT_APP_API_URL}/api/movies?pageNo=${activeStep+1}&size=${numOfMoviesOnView}`)
     .then(resFromApi => {
       setValue({ listOfMovies:resFromApi.data.message })
@@ -124,7 +124,7 @@ const MovieList = (props) => {
               <MobileStepper
                //id='fixed-stepper'
                variant="progress"
-               steps={17}
+               steps={45}
                position="static"
                activeStep={activeStep}
                className={classes.root}
