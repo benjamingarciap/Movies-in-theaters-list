@@ -23,7 +23,7 @@ const MovieDetails = (props) => {
 
 
   useEffect(()=>{
-    axios.get(`${process.env.REACT_APP_API_URL}/api/movies/${props.match.params.id}`)
+    axios.get(`https://newmovieslist.herokuapp.com/api/movies/${props.match.params.id}`)
     .then( responseFromApi =>{
 
       setData({ movie:responseFromApi.data })
@@ -34,7 +34,7 @@ const MovieDetails = (props) => {
 
   const deleteMovie = () => {
         const { params } = props.match
-        axios.delete(`${process.env.REACT_APP_API_URL}/api/movies/${params.id}`)
+        axios.delete(`https://newmovieslist.herokuapp.com/api/movies/${params.id}`)
         .then( responseFromApi=>{
           props.history.push('/')
         })

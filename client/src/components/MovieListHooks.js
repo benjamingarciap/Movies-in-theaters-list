@@ -71,7 +71,7 @@ const MovieList = (props) => {
   useEffect(()=>{
     //get all movies 
     const numOfMoviesOnView = 22
-    axios.get(`${process.env.REACT_APP_API_URL}/api/movies?pageNo=${activeStep}&size=${numOfMoviesOnView}`)
+    axios.get(`https://newmovieslist.herokuapp.com/api/movies?pageNo=${activeStep}&size=${numOfMoviesOnView}`)
     .then(resFromApi => {
       setValue({ listOfMovies:resFromApi.data.message })
     })
@@ -79,7 +79,7 @@ const MovieList = (props) => {
   },[])
   
   const deleteProject = (id) => {
-    axios.delete(`${process.env.REACT_APP_API_URL}/api/movies/${id}`)
+    axios.delete(`https://newmovieslist.herokuapp.com/api/movies/${id}`)
     .then( responseFromApi =>{
         window.location.reload()
     })
@@ -95,7 +95,7 @@ const MovieList = (props) => {
       return prevActiveStep + 1 
     });
     const numOfMoviesOnView = 22
-    axios.get(`${process.env.REACT_APP_API_URL}/api/movies?pageNo=${activeStep+1}&size=${numOfMoviesOnView}`)
+    axios.get(`https://newmovieslist.herokuapp.com/api/movies?pageNo=${activeStep+1}&size=${numOfMoviesOnView}`)
     .then(resFromApi => {
       setValue({ listOfMovies:resFromApi.data.message })
     })
@@ -108,7 +108,7 @@ const MovieList = (props) => {
     }
     setActiveStep(prevActiveStep => prevActiveStep - 1 );
     const numOfMoviesOnView = 22
-    axios.get(`${process.env.REACT_APP_API_URL}/api/movies?pageNo=${activeStep-1}&size=${numOfMoviesOnView}`)
+    axios.get(`https://newmovieslist.herokuapp.com/api/movies?pageNo=${activeStep-1}&size=${numOfMoviesOnView}`)
     .then(resFromApi => {
       setValue({ listOfMovies:resFromApi.data.message })
     })

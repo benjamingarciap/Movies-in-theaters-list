@@ -61,7 +61,7 @@ const EditMovie = (props)=>{
   const getSingleMovie = () => {
     const { params } = props.match
     //console.log(props)
-    axios.get(`${process.env.REACT_APP_API_URL}/api/movies/${params.id}`)
+    axios.get(`https://newmovieslist.herokuapp.com//api/movies/${params.id}`)
     .then( responseFromApi =>{
       //console.log(responseFromApi)
       const theMovie = responseFromApi.data
@@ -114,7 +114,7 @@ const EditMovie = (props)=>{
 
     e.preventDefault()
     const { params } = props.match
-    axios.put(`${process.env.REACT_APP_API_URL}/api/movies/${params.id}`, {genre_ids, vote_count, id, video, vote_average, title, popularity, poster_path, original_language, original_title, backdrop_path, adult, overview, release_date})
+    axios.put(`https://newmovieslist.herokuapp.com/api/movies/${params.id}`, {genre_ids, vote_count, id, video, vote_average, title, popularity, poster_path, original_language, original_title, backdrop_path, adult, overview, release_date})
     .then(()=> {
      
      props.history.goBack()
